@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    font-family: "Rubik", sans-serif;
+    line-height: 1.2;
+}
+body {
+    margin: 0;
+}
+.app {
+    background: #1a1a1a;
+    min-height: 100vh;
+}
+.container {
+    margin: 0 auto;
+    padding: 50px 10px 10px;
+    max-width: 736px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.timer {
+    background: rgb(251, 244, 232);
+    padding: 10px 10px 35px;
+    max-width: max-content;
+    position: relative;
+    &-time {
+        text-align: right;
+        color: rgb(30, 30, 30);
+        font-size: 17px;
+        font-weight: 600;
+    }
+    &-circle {
+        margin-top: 10px;
+        width: 150px;
+        height: 150px;
+        border-radius: 100%;
+        position: relative;
+        background: conic-gradient(#e3644d var(--progress, 0deg), rgb(247, 223, 209) 0deg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 1s linear;
+        &::after {
+            content: "";
+            position: absolute;
+            width: 134px;
+            height: 134px;
+            background: rgb(251, 244, 232);
+            border-radius: 50%;
+            z-index: 1;
+        }
+    }
+    &-input {
+        padding: 0;
+        background: none;
+        border: none;
+        outline: none;
+        max-width: 80%;
+        width: 100%;
+        text-align: center;
+        color: rgb(227, 100, 77);
+        font-size: 35px;
+        font-weight: 400;
+        position: relative;
+        z-index: 999;
+        &::placeholder {
+            color: rgb(227, 100, 77);
+            font-size: 35px;
+            font-weight: 400;
+        }
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+    &-num {
+        color: rgb(227, 100, 77);
+        font-size: 35px;
+        font-weight: 400;
+        z-index: 999;
+    }
+    &-completed {
+        display: flex;
+        position: relative;
+        z-index: 999;
+    }
+    &-reset,
+    &-pause,
+    &-play {
+        position: absolute;
+        border: 2px solid rgb(227, 100, 77);
+        color: rgb(227, 100, 77);
+        background: transparent;
+        width: 25px;
+        height: 25px;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.3s;
+        svg {
+            transition: all 0.3s;
+        }
+        &:hover {
+            background: rgb(227, 100, 77);
+            svg {
+                color: #fff;
+            }
+        }
+    }
+    &-reset {
+        left: 10px;
+    }
+    &-pause,
+    &-play {
+        right: 10px;
+    }
+}
